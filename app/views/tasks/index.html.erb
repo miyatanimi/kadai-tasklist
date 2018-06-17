@@ -1,0 +1,7 @@
+<h1>タスクリスト</h1>
+<%= link_to '新しいタスクを追加する', new_task_path %>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.content %>:<%= link_to '詳細', task %></li>
+  <% end %>
+</ul>
