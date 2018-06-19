@@ -1,6 +1,2 @@
 <h1>タスクを編集する</h1>
-<%= form_for(@task) do |f| %>
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-  <%= f.submit '送信' %>
-<% end %>
+<%= render 'form', task: @task %>
