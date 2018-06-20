@@ -14,5 +14,9 @@
   <!-- Error messages end -->
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
+  
+  <%= f.label :status,'状況' %>
+  <%= f.select :status,[['完了','完了'],['進捗ダメです','進捗ダメです'],['手付かず','手付かず'],['諦め','諦め'],['10文字以上テストです。テストです。','10文字以上テストです。テストです。']] %>
+  
   <%= f.submit '送信' %>
 <% end %>
