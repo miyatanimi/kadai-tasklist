@@ -1,7 +1,15 @@
 <h1>タスクリスト</h1>
-<%= link_to '新しいタスクを追加する', new_task_path %>
-<ul>
+<%= link_to '新しいタスクを追加する', new_task_path, class: 'btn btn-outline-primary' %>
+<div class="card-deck">
   <% @tasks.each do |task| %>
-    <li><%= task.content %>/状況:<%= task.status %><br><%= link_to '詳細', task %></li>
+  <div class="col-md-4 mt-3 px-0">
+        <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= task.content %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= task.status %></h6>
+          <%= link_to '詳細', task , class: 'card-link' %>
+        </div>
+      </div>
+  </div>
   <% end %>
-</ul>
+</div>

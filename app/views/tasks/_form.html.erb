@@ -1,10 +1,8 @@
 <%= form_for(task) do |f| %>
   <!-- Error messages start -->
   <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this message from being saved:</h2>
-
-      <ul>
+    <div id="error_explanation" class="alert alert-primary" role="alert">
+      <ul class="mb-0">
         <% task.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -12,11 +10,20 @@
     </div>
   <% end %>
   <!-- Error messages end -->
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-  
-  <%= f.label :status,'状況' %>
-  <%= f.select :status,[['完了','完了'],['進捗ダメです','進捗ダメです'],['手付かず','手付かず'],['諦め','諦め'],['10文字以上テストです。テストです。','10文字以上テストです。テストです。']] %>
-  
-  <%= f.submit '送信' %>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-xl-6">
+      <div class="form-group">
+        <%= f.label :content, 'タスク' %>
+        <%= f.text_field :content, class: "form-control" %>
+      </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col-sm-12 col-md-8 col-xl-6">
+      <%= f.label :status,'状況' %>
+      <%= f.select :status, [['完了','完了'],['進捗ダメです','進捗ダメです'],['手付かず','手付かず'],['諦め','諦め']],{}, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= f.submit '送信', class: "btn btn-primary col-sm-8 col-md-6 col-xl-5" %>
+  </div>
 <% end %>
